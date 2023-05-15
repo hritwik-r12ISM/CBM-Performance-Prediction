@@ -360,10 +360,10 @@ st.write(fig)
 
 st.write("From the graph, it can be seen that Gas flow rate is zero for some time initially since dewatering of coal bed methane is required to generate gas production. When the critical gas saturation is reached, the gas production starts and it increases with time till it reaches the maximum flow rate. Thereby, the gas flow rate decreases over time.")
 
-
-ax = sns.lmplot(x='Gp', y='Pressure', data=df, scatter_kws={'color':'blue'}, fit_reg=False)
-ax.set(xlabel='Gp (scf)', ylabel='Pressure (psi)')
-st.write(ax)
+fig = plt.figure(figsize=(10,4))
+sns.lmplot(x='Gp', y='Pressure', data=df, scatter_kws={'color':'blue'}, fit_reg=False)
+fig.set(xlabel='Gp (scf)', ylabel='Pressure (psi)')
+st.pyplot(fig)
 
 
 # fig = go.Figure()
