@@ -360,24 +360,18 @@ st.write(fig)
 
 st.write("From the graph, it can be seen that Gas flow rate is zero for some time initially since dewatering of coal bed methane is required to generate gas production. When the critical gas saturation is reached, the gas production starts and it increases with time till it reaches the maximum flow rate. Thereby, the gas flow rate decreases over time.")
 
-fig = plt.figure(figsize=(10,4))
-sns.lmplot(x='Gp', y='Pressure', data=df, scatter_kws={'color':'blue'}, fit_reg=False)
-fig.set(xlabel='Gp (scf)', ylabel='Pressure (psi)')
-st.pyplot(fig)
+fig = go.Figure()
 
-
-# fig = go.Figure()
-
-# fig.add_trace(go.Scatter(
-#     x=df["Gp"],
-#     y=df["Pressure"],
-#     name="Pressure vs Gp"
-# ))
-# fig.update_xaxes(minor=dict(ticks="inside", ticklen=6, showgrid=True))
-# fig.update_layout(title_text = "Plot of Pressure (psi) vs Gas Produced (scf)")
-# fig.update_xaxes(title_text="Gp (Scf)")
-# fig.update_yaxes(title_text="Pressure (psia)")
-# st.write(fig)
+fig.add_trace(go.Scatter(
+    x=df["Gp"],
+    y=df["Pressure"],
+    name="Pressure vs Gp"
+))
+fig.update_xaxes(minor=dict(ticks="inside", ticklen=6, showgrid=True))
+fig.update_layout(title_text = "Plot of Pressure (psi) vs Gas Produced (scf)")
+fig.update_xaxes(title_text="Gp (Scf)")
+fig.update_yaxes(title_text="Pressure (psia)")
+st.write(fig)
 
 
 fig = go.Figure()
